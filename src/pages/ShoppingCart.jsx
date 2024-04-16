@@ -100,13 +100,13 @@ const ShoppingCart = () => {
               <h5>Total: ${totalPrice.toLocaleString('pt-BR')}</h5>
             </div>
           </div>
-          <div className="col-md-12 mt-3">
-            <Link to="/" className="btn btn-secondary">
-              Voltar à Página Principal
-            </Link>
-          </div>
         </>
       )}
+      <div className="col-md-12 mt-3">
+        <Link to="/" className="btn btn-secondary">
+          Voltar à Página Principal
+        </Link>
+      </div>
     </div>
   );
 };

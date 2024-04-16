@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Categories from '../components/Categories';
 import { getProductsFromCategoryAndQuery } from '../services/api';
@@ -14,11 +14,25 @@ const Search = () => {
   const [category, setCategory] = useState('');
   const [showCategories, setShowCategories] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [selectedCategoryName, setSelectedCategoryName] = useState('');
 
   const inputChange = ({ target }) => {
     const { name, value } = target;
     if (name === 'category') setCategory(value);
     setSearch(value);
+  };
+
+  useEffect(() => {
+    if (category !== '') {
+      buttonSearch();
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [category]);
+
+  const handleCategoryChange = ({ target }) => {
+    const { value } = target;
+    setCategory(value);
+    setShowCategories(false);
   };
 
   const addInCart = ({ target }) => {
@@ -42,6 +56,22 @@ const Search = () => {
     setShowCategories(!showCategories);
   };
 
+  const handleCategorySelect = (categoryName) => {
+    setSelectedCategoryName(categoryName);
+  };
+
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      buttonSearch();
+    }
+  };
+
+  const categoryWarning = selectedCategoryName && (
+    <div className="alert alert-info alert-sm" style={{ fontSize: '0.8em', padding: '0.25rem 0.5rem' }}>
+      Categoria selecionada: {selectedCategoryName}. Sua busca está acontecendo apenas nesta categoria. Se quiser uma busca geral, selecione a opção Todas as categorias
+    </div>
+  );
+
   return (
     <div className="container py-4 searchPage">
       <ToastContainer />
@@ -56,6 +86,7 @@ const Search = () => {
               placeholder="Digite o nome do produto..."
               value={search}
               onChange={inputChange}
+              onKeyDown={handleKeyPress}
               size={40}
             />
             <button
@@ -73,26 +104,20 @@ const Search = () => {
           </Link>
         </div>
       </div>
-      <Dropdown
-        show={showCategories}
-        onMouseEnter={handleCategoriesClick}
-        onMouseLeave={handleCategoriesClick}
-      >
+      <Dropdown show={showCategories} onClick={handleCategoriesClick}>
         <Dropdown.Toggle variant="success" id="dropdown-basic">
           <MdMenu />
         </Dropdown.Toggle>
         <Dropdown.Menu>
-          <Categories inputChange={inputChange} />
+          <Categories inputChange={handleCategoryChange} onCategorySelect={handleCategorySelect} />
         </Dropdown.Menu>
       </Dropdown>
-
+      <br />
+      {categoryWarning}
       {loading ? (
         <div className="spinner-border text-primary" role="status">
         </div>
       ) : null}
-      <br />
-      <br />
-      <br />
       <div className="row">
         {products.length !== 0 ? (
           products.map((product) => (

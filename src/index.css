@@ -89,3 +89,26 @@ body.dark-mode a:hover {
   transform: scale(1.05); /* Aumenta ligeiramente o tamanho da div ao passar o mouse */
   transition: transform 0.2s ease-in-out; /* Adiciona uma transição suave para o efeito */
 }
+
+.visually-hidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+
+.category-label {
+  cursor: pointer;
+}
+
+.category-label:hover {
+  background-color: #f0f0f0;
+}
+
+.category-label.selected {
+  background-color: #cceeff; 
+}
