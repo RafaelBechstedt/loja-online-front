@@ -1,6 +1,6 @@
 # Simulação de Loja Online em React
 
-Este é um projeto de simulação de uma loja online desenvolvida em React usando Vite como bundler. A aplicação consome uma API externa do Mercado Livre, permitindo aos usuários pesquisar por produtos, adicionar produtos ao carrinho, visualizar detalhes do produto, remover produtos do carrinho e atualizar a quantidade de produtos no carrinho.
+Este é um projeto de simulação de uma loja online desenvolvida em React usando Vite como bundler. A aplicação consome uma API externa do Mercado Livre, permitindo aos usuários pesquisar por produtos reais, adicionar produtos ao carrinho, visualizar detalhes do produto, remover produtos do carrinho e atualizar a quantidade de produtos no carrinho. As imagens podem ficar destorcidas pois são fornecidas em resolução baixa pela API.
 
 ## Funcionalidades
 
@@ -16,6 +16,7 @@ Este é um projeto de simulação de uma loja online desenvolvida em React usand
 - Vite: Um bundler de desenvolvimento rápido para projetos baseados em JavaScript.
 - Bootstrap: Um framework de código aberto para desenvolvimento de componentes e estilos responsivos para a web.
 - CSS: Estilos adicionais para personalizar a aparência da aplicação.
+- React Toastify: Framework para notificações das ações bem sucedidas do usuário.
 
 ## Práticas de Desenvolvimento
 
