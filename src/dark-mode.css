@@ -1,0 +1,15 @@
+.dark-mode {
+    background-color: #212529; /* Cor de fundo escura */
+    color: #ffffff; /* Cor do texto branca */
+  }
+  
+  /* Exemplo de estilos para outros elementos, ajuste conforme necessário */
+  .dark-mode a {
+    color: #ffffff; /* Cor dos links */
+  }
+  
+  .dark-mode .btn-primary {
+    background-color: #007bff; /* Cor de fundo do botão primário */
+    border-color: #007bff; /* Cor da borda do botão primário */
+    color: #ffffff; /* Cor do texto do botão primário */
+  }
