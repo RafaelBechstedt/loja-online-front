@@ -1,6 +1,6 @@
 # Simulação de Loja Online em React
 
-Este é um projeto de simulação de uma loja online desenvolvida em React usando Vite como bundler. A aplicação consome uma API externa do Mercado Livre, permitindo aos usuários pesquisar por produtos reais, adicionar produtos ao carrinho, visualizar detalhes do produto, remover produtos do carrinho e atualizar a quantidade de produtos no carrinho. As imagens podem ficar destorcidas pois são fornecidas em resolução baixa pela API.
+Este é um projeto de simulação de uma loja online desenvolvida em React usando Vite como bundler. A aplicação consome uma API externa do Mercado Livre, permitindo aos usuários pesquisar por produtos reais, adicionar produtos ao carrinho, visualizar detalhes do produto, remover produtos do carrinho e atualizar a quantidade de produtos no carrinho. As imagens podem ficar destorcidas pois são fornecidas em resolução baixa pela API. O projeto está disponível acessando https://rafaelbechstedt.github.io/loja-online-front
 
 ## Funcionalidades
 
