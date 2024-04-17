@@ -66,7 +66,7 @@ const Search = () => {
     }
   };
 
-  const categoryWarning = selectedCategoryName && (
+  const categoryWarning = selectedCategoryName && search !== '' && (
     <div className="alert alert-info alert-sm" style={{ fontSize: '0.8em', padding: '0.25rem 0.5rem' }}>
       Categoria selecionada: {selectedCategoryName}. Sua busca está acontecendo apenas nesta categoria. Se quiser uma busca geral, selecione a opção Todas as categorias
     </div>
