@@ -54,7 +54,7 @@ const ShoppingCart = () => {
     localStorage.removeItem('cart');
     setShopping([]);
     setElementsId([]);
-    toast.success('Seu carrinho foi limpado', {
+    toast.success('Seu carrinho foi esvaziado', {
       position: "top-right",
     });
   };
