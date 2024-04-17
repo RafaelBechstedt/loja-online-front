@@ -8,7 +8,7 @@ const Search = ({ search, showCategories, buttonSearch, handleKeyPress, handleCa
 
 
   return (
-    <div className="container py-4 searchPage">
+    <div className="search">
       <div className="row mb-4 justify-content-center">
         <div className="col-md-8">
           <h1 className="mb-3" style={{ fontFamily: 'Montserrat, sans-serif' }}>Pesquisa de Produtos</h1>
