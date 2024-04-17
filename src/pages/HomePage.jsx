@@ -12,6 +12,7 @@ const HomePage = () => {
   const [showCategories, setShowCategories] = useState(false);
   const [loading, setLoading] = useState(false);
   const [selectedCategoryName, setSelectedCategoryName] = useState('');
+  const [searchPerformed, setSearchPerformed] = useState(false);
 
   useEffect(() => {
     if (category !== '') {
@@ -31,6 +32,7 @@ const HomePage = () => {
     const data = await getProductsFromCategoryAndQuery(category, search);
     setProducts(data.results);
     setLoading(false);
+    setSearchPerformed(true);
   };
 
   const handleCategoriesClick = () => {
@@ -82,15 +84,15 @@ const HomePage = () => {
         </div>
       ) : null}
       <div className="row">
-        {products.length !== 0 ? (
+        {searchPerformed && products.length === 0 ? (
+          <p className="col-md-12">Nenhum produto foi encontrado</p>
+        ) : (
           products.map((product) => (
             <Products
               key={product.id}
               product={product}
             />
           ))
-        ) : (
-          <p className="col-md-12">Nenhum produto foi encontrado</p>
         )}
       </div>
     </div>
