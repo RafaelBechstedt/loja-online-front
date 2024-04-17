@@ -4,60 +4,61 @@ import { Dropdown } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import { MdShoppingCart, MdSearch, MdMenu } from 'react-icons/md';
 
-const Search = ({ search, showCategories, buttonSearch, handleKeyPress, handleCategoriesClick, handleCategoryChange, inputChange, handleCategorySelect }) => {
-
-
+const Navbar = ({ search, showCategories, buttonSearch, handleKeyPress, handleCategoriesClick, handleCategoryChange, inputChange, handleCategorySelect }) => {
   return (
-    <div className="search">
-      <div className="row mb-4 justify-content-center">
-        <div className="col-md-8">
-          <h1 className="mb-3" style={{ fontFamily: 'Montserrat, sans-serif' }}>Pesquisa de Produtos</h1>
-          <div className="input-group">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light mb-4">
+      <div className="container">
+        <Link className="navbar-brand" to="/">Minha Loja</Link>
+        <button className="navbar-toggler" type="button" onClick={handleCategoriesClick}>
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <li className="nav-item">
+              <Link className="nav-link" to="/">Home</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/about">Sobre</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/contact">Contato</Link>
+            </li>
+          </ul>
+          <form className="d-flex" onSubmit={(e) => e.preventDefault()}>
             <input
-              name="search"
-              type="text"
-              className="form-control"
+              className="form-control me-2"
+              type="search"
               placeholder="Digite o nome do produto..."
+              aria-label="Search"
               value={search}
               onChange={inputChange}
               onKeyDown={handleKeyPress}
-              size={40}
             />
-            <button
-              type="button"
-              className="btn btn-primary"
-              onClick={buttonSearch}
-            >
-              <MdSearch size="1.4em" />
+            <button className="btn btn-outline-primary" type="button" onClick={buttonSearch}>
+              <MdSearch />
             </button>
-          </div>
-        </div>
-        <div className="col-md-4">
-          <Link to="/ShoppingCart">
-            <MdShoppingCart size="2.5em" />
-          </Link>
+            <Link className="nav-link mx-3" to="/ShoppingCart">
+              <MdShoppingCart size="2.5em"/>
+            </Link>
+          </form>
+          <Dropdown show={showCategories} onClick={handleCategoriesClick}>
+            <Dropdown.Toggle variant="success" id="dropdown-basic">
+              <MdMenu />
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+              <Categories inputChange={handleCategoryChange} onCategorySelect={handleCategorySelect} />
+            </Dropdown.Menu>
+          </Dropdown>
         </div>
       </div>
-      <Dropdown show={showCategories} onClick={handleCategoriesClick}>
-        <Dropdown.Toggle variant="success" id="dropdown-basic">
-          <MdMenu />
-        </Dropdown.Toggle>
-        <Dropdown.Menu>
-          <Categories inputChange={handleCategoryChange} onCategorySelect={handleCategorySelect} />
-        </Dropdown.Menu>
-      </Dropdown>
       <br />
-    </div>
+    </nav>
   );
 };
 
-Search.propTypes = {
+Navbar.propTypes = {
   search: PropTypes.string.isRequired,
-  setSearch: PropTypes.func.isRequired,
-  category: PropTypes.string.isRequired,
-  setCategory: PropTypes.func.isRequired,
   showCategories: PropTypes.bool.isRequired,
-  setShowCategories: PropTypes.func.isRequired,
   buttonSearch: PropTypes.func.isRequired,
   handleKeyPress: PropTypes.func.isRequired,
   handleCategoriesClick: PropTypes.func.isRequired,
@@ -65,4 +66,5 @@ Search.propTypes = {
   inputChange: PropTypes.func.isRequired,
   handleCategorySelect: PropTypes.func.isRequired
 };
-export default Search;
+
+export default Navbar;
