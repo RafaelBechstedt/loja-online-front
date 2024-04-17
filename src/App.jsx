@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import './dark-mode.css';
-import Search from './pages/Search';
 import ShoppingCart from './pages/ShoppingCart';
 import Product from './pages/Product';
 import NotFound from './pages/NotFound';
+import HomePage from './pages/HomePage';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -21,7 +21,7 @@ function App() {
         {darkMode ? 'Modo Claro' : 'Modo Escuro - beta'}
       </button>
       <Routes>
-        <Route path="/" element={<Search />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/ShoppingCart" element={<ShoppingCart />} />
         <Route path="/Product/:id" element={<Product />} />
         <Route path='*' element={<NotFound />} />
