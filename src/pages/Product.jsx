@@ -38,6 +38,9 @@ const Product = () => {
 
   return (
     <div className="container py-4">
+      <Link to="/" className="btn btn-secondary">
+        Voltar à Página Principal
+      </Link>
       <ToastContainer />
       <div className="row">
         <div className="col-md-6 d-flex justify-content-center align-items-center">
@@ -65,11 +68,6 @@ const Product = () => {
             <MdShoppingCart size="2em" />
           </Link>
         </div>
-      </div>
-      <div className="col-md-12 mt-3">
-        <Link to="/" className="btn btn-secondary">
-          Voltar à Página Principal
-        </Link>
       </div>
     </div>
   );

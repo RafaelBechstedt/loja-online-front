@@ -60,7 +60,12 @@ const ShoppingCart = () => {
   };
 
   return (
-    <div className="container mt-5">
+    <div className="container py-4">
+      <Link to="/" className="btn btn-secondary">
+        Voltar à Página Principal
+      </Link>
+      <br />
+      <br />
       <ToastContainer />
       {(!shopping.length) ? (
         <p>Seu carrinho está vazio</p>
@@ -102,11 +107,6 @@ const ShoppingCart = () => {
           </div>
         </>
       )}
-      <div className="col-md-12 mt-3">
-        <Link to="/" className="btn btn-secondary">
-          Voltar à Página Principal
-        </Link>
-      </div>
     </div>
   );
 };
