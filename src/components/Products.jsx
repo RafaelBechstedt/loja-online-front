@@ -16,7 +16,7 @@ const Products = ({ product }) => {
   };
 
   return (
-    <div className="col-md-3 mb-4">
+    <div className="col-md-3 mb-4 col-sm col">
       <div className="card">
         <Link to={`/product/${id}`} className="card-link">
           <img src={thumbnail} alt={title} className="card-img-top" />
